@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import request from 'request-promise';
 import { promisifyAll } from 'bluebird';
 import fileExists from 'file-exists';
 import R from 'ramda';
@@ -23,7 +23,13 @@ export default function (config) {
     if(fileExists(config.paramsPath)) {
       promise = fs.readFileAsync(config.paramsPath);
     } else {
-      promise = fetch(`https://api.myedools.com/themes/${config.themeId}/params`);
+      promise = request({
+        uri: `https://api.myedools.com/themes/${config.theme}/params`,
+        headers: {
+          Authorization: `Token token=${config.token}`,
+          Accept: 'application/vnd.edools.themes.v1+json'
+        }
+      });
     }
 
     promise
@@ -35,6 +41,9 @@ export default function (config) {
       .then((schemas) => {
         params.schemas = schemas;
         res.end(JSON.stringify(params));
+      })
+      .catch((err) => {
+        throw err;
       });
   };
 }
