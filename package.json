@@ -2,7 +2,7 @@
   "name": "edools-connect-middleware",
   "version": "0.0.1",
   "description": "Edools theme server connect middleware to handle theme parameters and shcema serving",
-  "main": "bootstrap.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "npm test"
   },
@@ -16,5 +16,15 @@
     "object-path": "^0.9.2",
     "ramda": "^0.13.0",
     "request-promise": "^0.4.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.1.14",
+    "esperanto": "^0.7.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-eslint": "^0.13.2",
+    "gulp-file": "^0.2.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-sourcemaps": "^1.5.2"
   }
 }

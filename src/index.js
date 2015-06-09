@@ -11,7 +11,7 @@ const DEFAULT_CONFIG = {
   appPath: 'app/'
 };
 
-export default function (config) {
+var middleware = function (config) {
   return (req, res, next) => {
     let promise, params;
 
@@ -46,4 +46,6 @@ export default function (config) {
         throw err;
       });
   };
-}
+};
+
+export { middleware };

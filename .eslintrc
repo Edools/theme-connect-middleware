@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "quotes": [2, "single"],
+    "no-unused-expressions": 0,
+    "no-underscore-dangle": 0,
+    "camelcase": [2, {"properties": "never"}],
+    "no-multi-spaces": [2, {
+      "exceptions": {
+        "VariableDeclarator": true,
+        "AssignmentExpression": true
+      }
+    }]
+  },
+  "env": {
+    "node": true
+  }
+}
