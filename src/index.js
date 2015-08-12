@@ -36,7 +36,9 @@ var middleware = function (config) {
       .then(JSON.parse)
       .then((result) => {
         params = result;
-        return parseSchemas(config);
+        if(config.parseSchemas) {
+          return parseSchemas(config);
+        }
       })
       .then((schemas) => {
         params.schemas = schemas;

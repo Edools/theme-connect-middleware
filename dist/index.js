@@ -72,7 +72,9 @@
 
       promise.then(JSON.parse).then(function (result) {
         params = result;
-        return parseSchemas(config);
+        if (config.parseSchemas) {
+          return parseSchemas(config);
+        }
       }).then(function (schemas) {
         params.schemas = schemas;
         res.end(JSON.stringify(params));
